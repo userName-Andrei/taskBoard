@@ -5,6 +5,8 @@ import { IUserRegistration } from '../../types/user';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { login, registration } from '../../store/action-creators/auth';
 import { useAuth } from '../../hooks/useAuth';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import Spinner from '../Spinner';
 
 const initialUser: IUserRegistration = {
     id: '',
@@ -18,6 +20,7 @@ const SignIn = () => {
 
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const {loading} = useAppSelector(state => state.auth);
     const [user, setUser] = useState<IUserRegistration>(initialUser);
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +37,6 @@ const SignIn = () => {
         
         dispatch(login(user));
         setUser(initialUser);
-        navigate('/');
     }
 
     return (
@@ -71,7 +73,7 @@ const SignIn = () => {
                 type='submit' 
                 className='auth__btn' 
                 size='small'>
-                Sign In
+                {loading && <Spinner className='auth__spinner' color='#E5E1E6' />} Sign In
             </Button>
 
             <p>
