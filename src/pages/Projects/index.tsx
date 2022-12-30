@@ -8,12 +8,15 @@ import ProjectList from '../../components/ProjectList';
 
 import './projects.scss';
 import { CSSTransition } from 'react-transition-group';
+import { useAuth } from '../../hooks/useAuth';
+import { Navigate } from 'react-router-dom';
 
 const Projects = () => {
 
-    const [modalActive, setModalActive] = useState<boolean>(false)
+    const {isAuth} = useAuth();
+    const [modalActive, setModalActive] = useState<boolean>(false);
 
-    return (
+    return isAuth ? (
         <>
             <Header />
 
@@ -39,7 +42,7 @@ const Projects = () => {
             </CSSTransition>
             
         </>
-    );
+    ) : <Navigate to="/" replace={true} />;
 };
 
 export default Projects;

@@ -7,6 +7,8 @@ import Tasks from './pages/Tasks';
 import { fetchComments } from './store/action-creators/comments';
 import { fetchProjects } from './store/action-creators/projects';
 import { fetchTasks } from './store/action-creators/tasks';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
 
 function App() {
 
@@ -22,7 +24,9 @@ function App() {
     <Routes>
       <Route path='/' element={<Projects />} />
       <Route path='/:projectId/tasks' element={<Tasks />} />
-      <Route path='*' element={<Projects />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/register' element={<Register />} />
+      <Route path='/login' element={<Login />} />
     </Routes>
   );
 }
