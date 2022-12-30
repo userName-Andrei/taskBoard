@@ -15,6 +15,11 @@ export interface IUserLogin {
     password: string | null
 }
 
+export interface IUserLogin {
+    email: string | null,
+    password: string | null
+}
+
 export interface UserState {
     user: IUser | null,
     loading: boolean,
