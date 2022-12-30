@@ -16,15 +16,11 @@ const Register = () => {
         <div className="auth">
             <div className='auth__wrapper card'>
 
-                {loading ?
-                <Spinner /> :
-                <>
-                    <div className="auth__top card__top card__top_center">
-                        <h1 className='card__title'>Registration</h1>
-                    </div>
+                <div className="auth__top card__top card__top_center">
+                    <h1 className='card__title'>Registration</h1>
+                </div>
 
-                    <SignUp />
-                </> }
+                <SignUp />
 
             </div>
         </div>

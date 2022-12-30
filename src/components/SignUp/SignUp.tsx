@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { IUserRegistration } from '../../types/user';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { registration } from '../../store/action-creators/auth';
+import Spinner from '../Spinner';
+import { useAppSelector } from '../../hooks/useAppSelector';
 
 const initialUser: IUserRegistration = {
     id: '',
@@ -17,6 +19,7 @@ const SignUp = () => {
 
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const {loading} = useAppSelector(state => state.auth);
     const [user, setUser] = useState<IUserRegistration>(initialUser);
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +36,6 @@ const SignUp = () => {
         
         dispatch(registration(user));
         setUser(initialUser);
-        navigate('/');
     }
 
     return (
@@ -92,7 +94,7 @@ const SignUp = () => {
                 type='submit' 
                 className='auth__btn' 
                 size='small'>
-                Sign Up
+                {loading && <Spinner className='auth__spinner' color='#E5E1E6' />} Sign In
             </Button>
 
             <p>
