@@ -42,7 +42,7 @@ const Projects = () => {
             </CSSTransition>
             
         </>
-    ) : <Navigate to="/" replace={true} />;
+    ) : <Navigate to="/login" replace={true} />;
 };
 
 export default Projects;

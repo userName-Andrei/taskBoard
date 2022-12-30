@@ -1,10 +1,9 @@
 import React, { ChangeEvent, useState, FormEvent } from 'react';
 import Button from '../Button';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IUserRegistration } from '../../types/user';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { registration } from '../../store/action-creators/auth';
-import { useAuth } from '../../hooks/useAuth';
 
 const initialUser: IUserRegistration = {
     id: '',
@@ -93,7 +92,7 @@ const SignUp = () => {
                 type='submit' 
                 className='auth__btn' 
                 size='small'>
-                Sign In
+                Sign Up
             </Button>
 
             <p>
